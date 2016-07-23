@@ -1,0 +1,8 @@
+server {
+	listen 80;
+	server_name s.agarri.ga;
+
+	location / {
+		root /home/adria/screenshots/;
+	}
+}
