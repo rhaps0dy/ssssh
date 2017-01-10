@@ -1,8 +1,6 @@
 #/bin/bash
 # If Linux, requires ImageMagick and xclip
-ID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
-URL="http://s.agarri.ga"
-SSHDIR="adria@zero.agarri.ga:/home/adria/screenshots"
+ID=$(cat /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
 
 case $(uname) in
 Darwin)
@@ -20,8 +18,8 @@ esac
 
 filename="/tmp/$ID.png"
 $SHOOT $filename
-scp "$filename" "$SSHDIR"
-link="$URL/$ID.png"
+scp "$filename" "$SSSSH_SSHDIR"
+link="$SSSSH_URL/$ID.png"
 echo $link
 echo $link | $CLIPBOARD
 $OPEN $link
